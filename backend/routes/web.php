@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::group(['prefix'=>'customer'], function () {
+//     Route::get('index', 'CustomerController@index')->name('customer.index');
+//     Route::get('create', 'CustomerController@create')->name('customer.create');
+//   });
+// Route::get('/customer/index', [CustomerController::class, 'index']);
+// Route::get('/customer/create', [CustomerController::class, 'create']);
+// Route::post('/customer/store', [CustomerController::class, 'store']);
+
+Route::resource('/customer', App\Http\Controllers\CustomerController::class);
+
+Route::get('/getSearch', [App\Http\Controllers\CustomerController::class, 'getSearch'])->name('customer.getSearch');
+
